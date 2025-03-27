@@ -1,0 +1,11 @@
+{
+    "new": [
+      { "title": "Сияние", "author": "Стивен Кинг", "cover": "https://via.placeholder.com/100x150" },
+      { "title": "Отцы и дети", "author": "Иван Тургенев", "cover": "https://via.placeholder.com/100x150" }
+    ],
+    "popular": [
+      { "title": "Цветы для Элджернона", "author": "Дэниел Киз", "cover": "https://via.placeholder.com/100x150" },
+      { "title": "1984", "author": "Джордж Оруэлл", "cover": "https://via.placeholder.com/100x150" }
+    ]
+  }
+  
