@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль</title>
+  <link rel="stylesheet" href="src/components/css/profile.css">
+  <script src="src/components/js/profile.js" type="module"></script>
+</head>
+<body>
+
+    <div id="top-menu"></div>
+
+    <script>
+        fetch('/top-menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('top-menu').innerHTML = data;
+            });
+    </script>
+    
+  <div class="profile-container">
+    <div class="profile-header">
+        <img id="avatar" src="" alt="Аватар">
+        <div class="username" id="username">Имя</div>
+        <p id="user-date" class="text-sm text-gray-500">Дата регистрации</p>
+      </div>
+      
+      <div class="toggle-buttons">
+        <button id="btn-my-books" class="active">Мои книги</button>
+        <button id="btn-fav-books">Избранные</button>
+      </div>
+      
+      <div class="books-section" id="books-container"></div>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>

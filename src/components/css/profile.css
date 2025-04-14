@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'Geologica';
+    src: url('../../public/fonts/Geologica_Auto-Regular.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Geologica-1';
+    src: url('../../public/fonts/Geologica_Auto-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Geologica', sans-serif;
+    background-color: #f4f4f9;
+    color: #2c2c2c;
+  }
+  
+  /* Профиль */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .profile-header img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .profile-header .username {
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  
+  /* Переключатели */
+  .toggle-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    background-color: #e8eef5;
+    padding: 5px;
+    border-radius: 12px;
+  }
+  
+  .toggle-buttons button {
+    flex: 1;
+    border: none;
+    padding: 10px 0;
+    border-radius: 12px;
+    background-color: transparent;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    color: #888;
+    transition: 0.3s;
+  }
+  
+  .toggle-buttons button.active {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Книги */
+  .books-section {
+    padding: 0 20px 100px 20px;
+  }
+  
+  .book-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 15px;
+    padding: 12px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .book-card img {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .book-info {
+    flex: 1;
+  }
+  
+  .book-title {
+    font-size: 1.05em;
+    font-weight: 500;
+  }
+  
+  .book-author {
+    font-size: 0.9em;
+    color: #777;
+  }
+
+
+  .user-info p#user-date {
+    color: #888;
+    font-size: 0.875rem; /* text-sm */
+    margin-top: 4px;
+  }
+  
