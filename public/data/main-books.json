@@ -1,0 +1,19 @@
+
+{
+    "Новое": [
+      { "title": "Сияние", "img": "/books/shine.jpg" },
+      { "title": "Отцы и дети", "img": "/books/turgenev.jpg" },
+      { "title": "Портрет Дориана Грея", "img": "/books/wilde.jpg" }
+    ],
+    "Популярное": [
+      { "title": "Цветы для Элджернона", "img": "/books/flowers.png" },
+      { "title": "1984", "img": "/books/1984.jpg" },
+      { "title": "Лолита", "img": "/books/lolita.jpg" }
+    ],
+    "Книги в Саратове": [
+      { "title": "Город солнца", "img": "/books/sun.jpg" },
+      { "title": "Улисс", "img": "/books/ulysses.jpg" },
+      { "title": "Мастер и Маргарита", "img": "/books/master.jpg" }
+    ]
+  }
+  

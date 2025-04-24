@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта — WanderBook</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Geologica', sans-serif;
+    }
+
+    #map {
+      width: 100%;
+      height: calc(100% - 60px);
+    }
+
+    .bottom-nav {
+      height: 60px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .bottom-nav img {
+      height: 24px;
+      opacity: 0.5;
+      transition: 0.2s;
+    }
+
+    .bottom-nav img.active {
+      opacity: 1;
+    }
+
+    .marker-custom {
+      width: 32px;
+      height: 32px;
+      background: #ffc107;
+      color: #003cff;
+      font-weight: bold;
+      font-family: sans-serif;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400&display=swap" rel="stylesheet">
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2bb9d0fe-cffe-4be5-9523-218f96082301" type="text/javascript"></script>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="top-menu"></div>
+
+  <script>
+      fetch('/top-menu.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('top-menu').innerHTML = data;
+          });
+  </script>
+  
+
+  <div class="bottom-nav">
+    <img src="/buildings.svg" alt="Здания">
+    <img src="/location.svg" class="active" alt="Рядом">
+    <img src="/chat.svg" alt="Чат">
+    <img src="/user.svg" alt="Профиль">
+  </div>
+
+  <script>
+    ymaps.ready(init);
+
+    function init() {
+      const map = new ymaps.Map("map", {
+        center: [51.541, 46.008], // Центр — Саратов
+        zoom: 13,
+        controls: []
+      });
+
+      // Кастомная метка "М"
+      const metroMarker = new ymaps.Placemark(
+        [51.541, 46.008],
+        {
+          hintContent: 'Метро',
+          balloonContent: 'Станция метро'
+        },
+        {
+          iconLayout: 'default#imageWithContent',
+          iconImageHref: '', // Нет фона
+          iconImageSize: [0, 0],
+          iconContentLayout: ymaps.templateLayoutFactory.createClass(
+            '<div class="marker-custom">М</div>'
+          )
+        }
+      );
+
+      map.geoObjects.add(metroMarker);
+
+      // Геолокация пользователя
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          const coords = [pos.coords.latitude, pos.coords.longitude];
+          map.setCenter(coords);
+          const userMarker = new ymaps.Placemark(coords, {
+            hintContent: 'Вы здесь'
+          }, {
+            preset: 'islands#blueDotIcon'
+          });
+          map.geoObjects.add(userMarker);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

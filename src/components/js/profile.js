@@ -1,11 +1,11 @@
-// Включить/отключить заглушки
-const USE_MOCK = true;
+const USE_MOCK = false;
 
-// Заглушки
 const mockUser = {
-  name: "Иван Иванов",
-  avatar: "../public/logo2.svg",
-  registeredAt: "2023-11-15", // ← добавлено
+  name: "Дарья",
+  avatar: "../public/ping.png",
+  registeredAt: "2025-01-01",
+  favoriteGenre: "Роман",
+  bookCount: 56
 };
 
 const mockMyBooks = [
@@ -17,31 +17,53 @@ const mockFavorites = [
   { title: "Лолита", author: "Набоков", image: "../public/books/lolita.jpg" },
 ];
 
-// Загрузка данных
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  let userData, myBooks, favorites;
+
   if (USE_MOCK) {
-    renderProfile(mockUser);
-    renderBooks(mockMyBooks);
+    userData = mockUser;
+    myBooks = mockMyBooks;
+    favorites = mockFavorites;
+  } else {
+    userData = await fetchJSON('/data/user.json');
+    const booksData = await fetchJSON('/data/books.json');    
+    myBooks = booksData.myBooks;
+    favorites = booksData.favorites;
   }
+
+  renderProfile(userData);
+  renderBooks(myBooks);
 
   const btnMy = document.getElementById("btn-my-books");
   const btnFav = document.getElementById("btn-fav-books");
 
   btnMy.addEventListener("click", () => {
     setActiveTab(btnMy);
-    renderBooks(mockMyBooks);
+    renderBooks(myBooks);
   });
 
   btnFav.addEventListener("click", () => {
     setActiveTab(btnFav);
-    renderBooks(mockFavorites);
+    renderBooks(favorites);
   });
 });
 
-// UI-helpers
+async function fetchJSON(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Ошибка загрузки ${url}`);
+  return await response.json();
+}
+
 function renderProfile(user) {
   document.getElementById("username").textContent = user.name;
   document.getElementById("avatar").src = user.avatar;
+
+  const date = new Date(user.registeredAt);
+  const year = date.getFullYear();
+  document.getElementById("user-date").textContent = `с ${year} года`;
+
+  document.getElementById("book-count").textContent = `📚 ${user.bookCount} книг`;
+  document.getElementById("user-genre").textContent = `⭐ ${user.favoriteGenre}`;
 }
 
 function renderBooks(bookList) {
@@ -60,10 +82,7 @@ function renderBooks(bookList) {
   });
 }
 
-
-
 function setActiveTab(button) {
   document.querySelectorAll(".toggle-buttons button").forEach(btn => btn.classList.remove("active"));
   button.classList.add("active");
 }
-

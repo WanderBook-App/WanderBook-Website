@@ -1,0 +1,21 @@
+{
+    "myBooks": [
+      {
+        "title": "Отцы и дети",
+        "author": "Иван Тургенев",
+        "image": "../books/otcy.jpg"
+      },
+      {
+        "title": "Сияние",
+        "author": "Стивен Кинг",
+        "image": "../books/shine.jpg"
+      }
+    ],
+    "favorites": [
+      {
+        "title": "Лолита",
+        "author": "Набоков",
+        "image": "../books/lolita.jpg"
+      }
+    ]
+  }

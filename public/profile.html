@@ -19,20 +19,25 @@
             });
     </script>
     
-  <div class="profile-container">
     <div class="profile-header">
-        <img id="avatar" src="" alt="Аватар">
+      <img id="avatar" src="" alt="Аватар">
+      <div>
         <div class="username" id="username">Имя</div>
-        <p id="user-date" class="text-sm text-gray-500">Дата регистрации</p>
+        <div class="user-info">
+          <p id="user-date">Дата регистрации</p>
+          <div class="user-meta">
+            <span id="book-count">📚 0 книг</span>
+            <span id="user-genre">⭐ Жанр</span>
+          </div>
+        </div>
       </div>
-      
-      <div class="toggle-buttons">
-        <button id="btn-my-books" class="active">Мои книги</button>
-        <button id="btn-fav-books">Избранные</button>
-      </div>
-      
-      <div class="books-section" id="books-container"></div>
-  </div>
+      <img class="settings-icon" src="../public/settings.png" alt="Настройки">
+    </div>
+    <div class="toggle-buttons">
+      <button id="btn-my-books" class="active">Мои книги</button>
+      <button id="btn-fav-books">Избранные</button>
+    </div>
+    <div class="books-section" id="books-container"></div>
 
   <script src="profile.js"></script>
 </body>
