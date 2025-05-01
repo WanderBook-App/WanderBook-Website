@@ -119,3 +119,74 @@
   </script>
 </body>
 </html>
+
+<!-- 
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="top-menu"></div>
+
+  <script>
+      fetch('/top-menu.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('top-menu').innerHTML = data;
+          });
+  </script>
+  
+
+  <div class="bottom-nav">
+    <img src="/buildings.svg" alt="Здания">
+    <img src="/location.svg" class="active" alt="Рядом">
+    <img src="/chat.svg" alt="Чат">
+    <img src="/user.svg" alt="Профиль">
+  </div>
+
+  <script>
+    ymaps.ready(init);
+
+    function init() {
+      const map = new ymaps.Map("map", {
+        center: [51.541, 46.008], // Центр — Саратов
+        zoom: 13,
+        controls: []
+      });
+
+      // Кастомная метка "М"
+      const metroMarker = new ymaps.Placemark(
+        [51.541, 46.008],
+        {
+          hintContent: 'Метро',
+          balloonContent: 'Станция метро'
+        },
+        {
+          iconLayout: 'default#imageWithContent',
+          iconImageHref: '', // Нет фона
+          iconImageSize: [0, 0],
+          iconContentLayout: ymaps.templateLayoutFactory.createClass(
+            '<div class="marker-custom">М</div>'
+          )
+        }
+      );
+
+      map.geoObjects.add(metroMarker);
+
+      // Геолокация пользователя
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          const coords = [pos.coords.latitude, pos.coords.longitude];
+          map.setCenter(coords);
+          const userMarker = new ymaps.Placemark(coords, {
+            hintContent: 'Вы здесь'
+          }, {
+            preset: 'islands#blueDotIcon'
+          });
+          map.geoObjects.add(userMarker);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+ -->
