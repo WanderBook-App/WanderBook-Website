@@ -45,15 +45,19 @@
 </body>
 
 <script>
-    const currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.substring(currentPath.lastIndexOf("/") + 1).replace(".html", "");
 
-    document.querySelectorAll(".menu-item").forEach(item => {
-        const page = item.getAttribute("data-page");
-        if (currentPage === page) {
-            item.classList.add("active");
-        }
+        document.querySelectorAll(".menu-item").forEach(item => {
+            const page = item.getAttribute("data-page");
+            if (currentPage === page) {
+                item.classList.add("active");
+            }
+        });
     });
 </script>
+
 
 </html>
                 

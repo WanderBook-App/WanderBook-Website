@@ -60,22 +60,45 @@ button {
     transition: all 0.3s;
 }
 
-.register-btn {
+/* .register-btn {
     background-color: #141a41;
     color: #ffffff;
 }
 
 .register-btn:hover {
     background-color: #3730A3;
+} */
+
+.register-btn {
+  display: inline-block;
+  padding: 12px;
+  background-color: #141a41;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
 }
+.register-btn:hover {
+  background-color: #3730A3;
+}
+
+
 
 .login-btn {
-    background-color: #E0E7FF;
-    color: #141a41;
+  display: inline-block;
+  padding: 12px;
+  background-color: #E0E7FF;
+  color: #141a41;
+  font-weight: 700;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
 }
-
 .login-btn:hover {
-    background-color: #C7D2FE;
+  background-color: #C7D2FE;
 }
 
 .continue-without-auth {

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Вход | WanderBook</title>
+  <link rel="stylesheet" href="src/components/css/login.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="login-container">
+    <h1>WanderBook</h1>
+    <img src="../public/LogoNoFrames.svg" alt="Логотип" class="logo"/>
+
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required/>
+      <input type="password" id="password" placeholder="Пароль" required/>
+      <button type="submit">Вход</button>
+    </form>
+
+    <div class="separator">или</div>
+    <button class="google-btn">Войти с помощью Google</button>
+  </div>
+
+<script src="/login.js" defer></script>
+</body>
+</html>

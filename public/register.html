@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — WanderBook</title>
+  <link rel="stylesheet" href="src/components/css/register.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="register-container">
+    <h1>WanderBook</h1>
+    <div class="logo">
+      <img src="LogoNoFrames.svg" alt="Логотип" />
+    </div>
+
+    <form id="register-form" class="form">
+      <input type="text" id="username" placeholder="Имя пользователя" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Пароль" required />
+      <input type="password" id="confirm-password" placeholder="Повторите пароль" required />
+      <button type="submit" class="submit-btn">Зарегистрироваться</button>
+    </form>
+
+    <div class="login-link">
+      <a href="login.html">Уже есть аккаунт? Войти</a>
+    </div>
+  </div>
+
+  <script src="/register.js" defer></script>
+</body>
+</html>

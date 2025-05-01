@@ -108,7 +108,7 @@
 
 /* для активной страницы */
 
-.menu-item.active .icon-wrapper {
+/* .menu-item.active .icon-wrapper {
     background-color: #5199d1;
     transform: scale(1.1);
 }
@@ -122,4 +122,29 @@
     margin-left: 12px;
     color: #000;
     font-weight: 500;
+} */
+
+.menu-item.active {
+    background-color: #efe6ff; /* светло-фиолетовый фон */
+    border-radius: 30px;        /* делает овал */
+    padding: 8px 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu-item.active .icon-wrapper {
+    background-color: transparent; /* прозрачный фон, чтобы не перебивало */
+    transform: none;
+}
+
+.menu-item.active .icon {
+    opacity: 1;
+    filter: brightness(0.6) saturate(150%) hue-rotate(250deg); /* фиолетоватый оттенок */
+}
+
+.menu-item.active .menu-text {
+    opacity: 1;
+    margin-left: 12px;
+    color: #7a4fcf;
+    font-weight: 500;
+    font-family: 'Geologica'; /* можно использовать основной */
 }
